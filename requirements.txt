@@ -1,0 +1,10 @@
+apache-airflow[celery,postgres,redis,gevent,crypto]==1.10.0
+celery
+redis
+psycopg2
+numpy
+pandas
+scipy
+matplotlib
+gunicorn
+gevent

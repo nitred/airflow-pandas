@@ -1,0 +1,15 @@
+name: airflow-pandas
+channels:
+  - defaults
+dependencies:
+- python=3.6.5
+- pip:
+  - flake8
+  - autopep8
+  - yapf
+  - cython
+  - future
+  - twine
+  - m2r
+  - -r requirements.txt
+  - -e .

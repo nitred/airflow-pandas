@@ -1,0 +1,32 @@
+version: '3'
+
+services:
+  airflow-pandas-postgres-s:
+    image: postgres:10
+    container_name: airflow-pandas-postgres-c
+    environment:
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_DB=airflow
+    ports:
+      - "5433:5432"
+    networks:
+      - airflow-pandas-n
+
+
+  airflow-pandas-redis-s:
+    image: redis:4
+    container_name: airflow-pandas-redis-c
+    ports:
+      - '6380:6379'
+    networks:
+      - airflow-pandas-n
+
+
+networks:
+  airflow-pandas-n:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+      - subnet: 172.64.64.0/24
